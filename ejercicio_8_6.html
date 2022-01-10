@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos8/estilos_8_6.css">
+</head>
+
+<style>
+#cargando{
+    background-color: black;
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    z-index: 10;
+}
+
+.ocultar{
+    top:110% !important;
+    transition: 1s;
+}
+
+h1{
+    color:white;
+    text-align: center;
+}
+
+
+
+
+</style>
+
+<body>
+    <div id="cargando">
+        <h1>Cargando</h1>
+    </div>
+
+    <img src="http://lorempixel.com/1920/1048">
+    <img src="https://source.unsplash.com/random">
+    <img src="https://picsum.photos/1920">
+    <img src="https://www.fillmurray.com/640/360">
+    <img src="http://loremflickr.com/1920/1048">
+    <script>
+window.addEventListener("load",(ev)=>{
+    let cargando=document.getElementById("cargando");
+    cargando.classList.add("ocultar");
+})
+
+
+
+    </script>
+    
+</body>
+</html>
