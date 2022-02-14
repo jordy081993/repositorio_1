@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>INFORME DE INCIDENCIAS</title>     
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <header>
+    <h1>informe incidencia</h1>
+</header>
+<figure>
+    <img src="oficina.jpg" alt="oficina" id="imagen"/>
+</figure>
+<main>
+<form action="#">
+<table>
+    <tr>
+        <td>
+            <label for="tipo">
+                Tipo de incidencia
+            </label>
+        </td>
+        <td>
+            <select name="tipo" id="tipo">
+                <option value="distribucion" selected>
+                    Distribución
+                </option>
+                <option value="oficina">Oficina</option>
+                <option value="produccion">Produccion</option>
+            </select>
+        </td>
+        </tr>
+        <tr>
+            <td>
+                <label id="labelSerie" for="serie">
+                    Número de serie
+                 </label>
+            </td>
+            <td>
+                <input type="text" name="serie" id="serie">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" id="mostrarDescripcion">
+                    MOstrar Descripcion
+                </button>
+              <div id="fDescripcion">
+                  <label for="descripcion" id="labelDescripcion">
+                      Descripcion
+                  </label><br>
+                  <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+              </div>
+            </td>
+        </tr>
+        <tr>
+        <td colspan="2">
+            <br>
+            <button id="enviar">Enviar Datos</button>
+        </td> 
+    </tr>
+    
+</table>
+        <div id="capaError"></div>
+      
+
+
+
+</form>
+
+</main>
+
+
+
+<script>
+window.addEventListener("load", function(ev){
+    var imagen=document.getElementById("imagen");
+    var combo=document.getElementById("tipo");
+    var serie=document.getElementById("serie");
+    var labelSerie=document.getElementById("labelSerie");
+    var labelDescripcion=document.getElementById("labelDescripcion");
+    var enviar=document.getElementById("enviar");
+    var mostrarDescripcion=document.getElementById("mostrarDescripcion");
+    var capaError=document.getElementById("capaError");
+    var fDescripcion=document.getElementById("fDescripcion");
+
+    combo.addEventListener("change",function(ev){
+        imagen.setAttribute("src" , `/${combo.value}.jpg`);
+        labelSerie.classList.remove("error");
+        serie.removeAttribute("class");
+
+       
+    });
+
+    serie.addEventListener("click", function(ev) {
+        capaError.textContent="";
+        labelSerie.classList.remove("error");
+        serie.classList.remove("error");
+    
+});
+enviar.addEventListener("click", function(ev){
+    if(/^[0-90]{3}[A-Z]{4}[12A]$/.test(serie.value)==false){
+        ev.preventDefault();
+        capaError.textContent="Código no válido";
+        labelSerie.classList.add("error");
+        serie.classList.add("error");
+        
+        }
+});
+mostrarDescripcion.addEventListener("click",function(ev){
+    fDescripcion.style.display="inline-block";
+    this.style.display=none;
+});
+});
+    
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
