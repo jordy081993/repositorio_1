@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  body {
+    width: 100%;
+  }
+
+  h1 {
+    color: blue;
+    margin-top: 15px;
+    margin-left: 45%;
+  }
+
+  #ip {
+    margin-left: 25px;
+    width: 300px;
+  }
+
+  #oppo {
+    margin-left: 25px;
+    width: 200px;
+  }
+
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+  $(document).ready(function () {
+    $("#hide").click(function () {
+      $("#ip").toggle(500);
+   
+  });
+    $("#hide2").click(function () {
+      $("#oppo").toggle(500);
+    });
+  });
+  $(document).ready(function () {
+  $("#hide").focus(function(){
+    $(this).css("background-color", "yellow");
+    });
+    $("#hide2").focus(function(){
+    $(this).css("background-color", "brown");
+    });
+  });
+
+
+</script>
+</head>
+
+<body>
+  <h1>jquery</h1>
+
+  <img id="ip" src="iphone.JPG">
+  <button id="hide">iphone</button>
+  <img id="oppo" src="oppo.JPG">
+  <button id="hide2">Oppo</button>
+
+</body>
+
+</html>
